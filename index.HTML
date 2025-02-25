@@ -4,108 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assault Crime Heatmap - Seattle 2020</title>
+    <meta name="author" content="Liuci Raisys">
     <link rel="icon" href="favicon.ico">
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-        }
-        header { 
-            background-color: #2c3e50; 
-            color: white; 
-            padding: 1rem; 
-            text-align: center; 
-            width: 100%; 
-        }
-        section { 
-            padding: 2rem; 
-            max-width: 800px; 
-            margin: auto; 
-        }
-        h1 { 
-            color: white
-        }
-
-        h2 {
-            color: #2c3e50;
-        }
-        img { 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 8px; 
-        }
-        .overview, .confidentiality { 
-            margin-bottom: 1rem; 
-        }
-        footer { 
-            background-color: #2c3e50; 
-            color: white; 
-            padding: 1rem; 
-            text-align: center; 
-        }
-
-        /* Collapsible Side Panel */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #f4f4f4;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 60px;
-        }
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #2c3e50;
-            display: block;
-            transition: 0.3s;
-        }
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-        .togglebtn {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            font-size: 24px;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        /* Main content shift when sidebar is toggled */
-        #main {
-            transition: margin-left 0.3s;
-            padding: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <button class="togglebtn" onclick="toggleNav()">☰</button>
 
-    <div class="sidebar" id="mySidebar">
-        <a href="#overview">Project Overview</a>
-        <a href="#heatmap">Interactive Heatmap</a>
-        <a href="#analysis">Analysis Summary</a>
-        <a href="#policies">Policies & Events</a>
-        <a href="#references">Data Sources</a>
-    </div>
+    <nav class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="#overview"><i class="fas fa-info-circle"></i></a></li>
+            <li><a href="#heatmap"><i class="fas fa-map"></i></a></li>
+            <li><a href="#analysis"><i class="fas fa-chart-bar"></i></a></li>
+            <li><a href="#policies"><i class="fas fa-balance-scale"></i></a></li>
+            <li><a href="#references"><i class="fas fa-database"></i></a></li>
+        </ul>
+    </nav>
 
-    <div id="main">
-        <header>
+    <div class="container">
+        <div class="left-section">
             <h1>Assault Crime Heatmap - Seattle 2020</h1>
-        </header>
+            <p class="subtext"> By Liuci Raisys, Kristen Do, Tamia Ouch, Kathleen Tran, and Yinzheng Chen </p>
 
-        <section class="overview" id="overview">
             <h2>About Our Project</h2>
             <p>
                 This project visualizes assault crimes in Seattle during 2020 using an interactive heatmap to provide a powerful 
@@ -125,23 +45,24 @@
                 efforts to promote safety, advocate for equitable resource distribution, and support crime prevention initiatives by 
                 visualizing where safety measures might be needed most.
             </p>
-            <img src="https://via.placeholder.com/600x300" alt="Seattle Map Placeholder">
-        </section>
 
-        <section class="confidentiality">
             <h2>Data Sensitivity & Confidentiality</h2>
             <p>
                 Our project ensures that assault crime data is displayed responsibly, maintaining confidentiality by using aggregated data points. 
                 We avoid pinpointing exact addresses to respect privacy while still providing valuable insights into crime patterns.
             </p>
-        </section>
+        </div>
+
+        <div class="right-section">
+            <img src="https://via.placeholder.com/600x300" alt="Seattle Map Placeholder">
+        </div>
+    </div>
 
         <footer>
             <p>&copy; 2025 Assault Crime Heatmap Project | Seattle, WA</p>
         </footer>
-    </div>
 
-    <script>
+    <!-- <script>
         function toggleNav() {
             const sidebar = document.getElementById("mySidebar");
             const main = document.getElementById("main");
@@ -153,6 +74,6 @@
                 main.style.marginLeft = "250px";
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>

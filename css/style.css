@@ -1,0 +1,134 @@
+/* index.html styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f8f6f3;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+h1{
+    font-size: 30pt;
+}
+p {
+    line-height: 1.5;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100vh;
+    background-color: #12131a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    z-index: 1000;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-links li {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-links a:hover {
+    color: #e74c3c;
+}
+
+.sidebar-links i {
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    width: 100vw;
+}
+
+.left-section {
+    flex: 1;
+    padding: 10px 80px 80px 80px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.right-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+}
+
+
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-section {
+        padding: 10px 75px 75px 75px;
+        text-align: center;
+    }
+
+    .right-section {
+        height: 300px;
+    }
+
+    .right-section img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay-text {
+        font-size: 1.5rem;
+        bottom: 5%;
+    }
+}
+
