@@ -1,21 +1,158 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Assualt in Seattle</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="author" content="">
-    <meta name="description" content="">
-    <title>homepage</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assault Crime Heatmap - Seattle 2020</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+        header { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 1rem; 
+            text-align: center; 
+            width: 100%; 
+        }
+        section { 
+            padding: 2rem; 
+            max-width: 800px; 
+            margin: auto; 
+        }
+        h1 { 
+            color: white
+        }
 
-</head>
+        h2 {
+            color: #2c3e50;
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+        }
+        .overview, .confidentiality { 
+            margin-bottom: 1rem; 
+        }
+        footer { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 1rem; 
+            text-align: center; 
+        }
 
+        /* Collapsible Side Panel */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #2c3e50;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        .togglebtn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 24px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Main content shift when sidebar is toggled */
+        #main {
+            transition: margin-left 0.3s;
+            padding: 15px;
+        }
+    </style>
+</head>
 <body>
+    <button class="togglebtn" onclick="toggleNav()">☰</button>
 
+    <div class="sidebar" id="mySidebar">
+        <a href="#overview">Project Overview</a>
+        <a href="#heatmap">Interactive Heatmap</a>
+        <a href="#analysis">Analysis Summary</a>
+        <a href="#policies">Policies & Events</a>
+        <a href="#references">Data Sources</a>
+    </div>
+
+    <div id="main">
+        <header>
+            <h1>Assault Crime Heatmap - Seattle 2020</h1>
+        </header>
+
+        <section class="overview" id="overview">
+            <h2>About Our Project</h2>
+            <p>
+                This project visualizes assault crimes in Seattle during 2020 using an interactive heatmap to provide a powerful 
+                visual representation of crime density across the city. By leveraging geographic data and spatial analysis, our 
+                map allows users to seamlessly explore crime patterns with an intuitive zoom feature. When zoomed in, individual 
+                data points become visible, offering detailed insights into specific assault incidents, including the type of crime 
+                and its location. Conversely, zooming out reveals broader crime trends, highlighting hotspots and areas with higher 
+                crime concentrations. This dynamic visualization not only aids residents and potential homebuyers in understanding 
+                neighborhood safety but also supports community organizations, businesses, and policymakers in making data-driven decisions.
+            </p>
+            
+            <p>The motivation behind this project stems from the critical need for accessible and transparent crime data. Assault 
+                crimes have a profound impact on community well-being, influencing everything from public perception of safety to 
+                property values and economic stability. In recent years, Seattle has seen shifts in crime trends due to a variety of 
+                social, economic, and policy-driven factors. By providing this heatmap, we aim to bridge the gap between raw data and 
+                actionable insights, empowering the public to make informed choices. Additionally, this project aligns with broader 
+                efforts to promote safety, advocate for equitable resource distribution, and support crime prevention initiatives by 
+                visualizing where safety measures might be needed most.
+            </p>
+            <img src="https://via.placeholder.com/600x300" alt="Seattle Map Placeholder">
+        </section>
+
+        <section class="confidentiality">
+            <h2>Data Sensitivity & Confidentiality</h2>
+            <p>
+                Our project ensures that assault crime data is displayed responsibly, maintaining confidentiality by using aggregated data points. 
+                We avoid pinpointing exact addresses to respect privacy while still providing valuable insights into crime patterns.
+            </p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Assault Crime Heatmap Project | Seattle, WA</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleNav() {
+            const sidebar = document.getElementById("mySidebar");
+            const main = document.getElementById("main");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                main.style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                main.style.marginLeft = "250px";
+            }
+        }
+    </script>
 </body>
-
 </html>
