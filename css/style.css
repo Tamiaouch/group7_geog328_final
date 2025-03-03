@@ -9,6 +9,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+.heading {
+    color: #00008B;
+}
+
 h1{
     font-size: 30pt;
 }
