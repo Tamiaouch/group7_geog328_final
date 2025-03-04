@@ -3,180 +3,198 @@
 <head>
 <meta charset="utf-8">
 <title>Assault Offenses Map</title>
+<meta name="author" content="Tamia Ouch">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<link rel="icon" href="favicon.ico">
+<!-- <link rel="stylesheet" href="css/style.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
-<style>
-body { margin: 0; padding: 0; display: flex; }
-.sidebar {
-    width: 25%;
-    height: 100vh;
-    background: white;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    border-right: 1px solid #ccc;
-    overflow-y: auto;
-}
-#map { width: 75%; height: 100vh; }
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-.table, .table th, .table td {
-    border: 1px solid black;
-    padding: 5px;
-    text-align: left;
-}
-
-/* Move the legend to bottom right */
-.legend {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: white;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-.legend div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-.legend span {
-    width: 20px;
-    height: 10px;
-    display: inline-block;
-    margin-right: 5px;
-}
-</style>
 </head>
+    <body class="map-content"></body>
+    <style>
+        body { margin: 0; padding: 0; display: flex; }
+        .map-sidebar {
+            width: 25%;
+            height: 100vh;
+            background: white;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+        }
+        #map { width: 75%; height: 100vh; }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table, .table th, .table td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+
+        /* Move the legend to bottom right */
+        .legend {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .legend div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend span {
+            width: 20px;
+            height: 10px;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        </style>
 <body>
-<div class="sidebar">
-    <h3>Crime Summary</h3>
-    <table class="table" id="crime-table">
-        <tr>
-            <th>MCPP</th>
-            <th>Number of Crimes</th>
-        </tr>
-    </table>
-</div>
-<div id="map"></div>
 
-<div class="legend" id="legend">
-    <strong>Heatmap Intensity</strong>
-    <div><span style="background: rgb(255,255,102);"></span> Low</div>
-    <div><span style="background: rgb(255,204,51);"></span> Moderate</div>
-    <div><span style="background: rgb(255,153,51);"></span> High</div>
-    <div><span style="background: rgb(255,0,0);"></span> Very High</div>
-</div>
+    <nav class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="index.html" data-tooltip="Overview"><i class="fas fa-info-circle"></i></a></li>
+            <li><a href="map.html" data-tooltip="Heatmap"><i class="fas fa-map"></i></a></li>
+            <li><a href="analysis.html" data-tooltip="Analysis"><i class="fas fa-chart-bar"></i></a></li>
+            <li><a href="importance.html" data-tooltip="Policies"><i class="fas fa-balance-scale"></i></a></li>
+            <li><a href="references.html" data-tooltip="References"><i class="fas fa-database"></i></a></li>            
+        </ul>
+    </nav>
 
-<script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGFtaWFvIiwiYSI6ImNtMWpqOTZqdzAyOXoyaXB6NWs2Z3I1NjQifQ.fmZ_xV4IXtA-9e21FWbMQw';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/tamiao/cm6tuah1l002o01so24tbaia9',
-        center: [-122.33935, 47.60774],
-        zoom: 12
-    });
+    <div class="map-sidebar">
+        <h3>Crime Summary</h3>
+        <table class="table" id="crime-table">
+            <tr>
+                <th>MCPP</th>
+                <th>Number of Crimes</th>
+            </tr>
+        </table>
+    </div>
+    <div id="map"></div>
 
-    function updateTable(data) {
-        const crimeCounts = {};
+    <div class="legend" id="legend">
+        <strong>Heatmap Intensity</strong>
+        <div><span style="background: rgb(255,255,102);"></span> Low</div>
+        <div><span style="background: rgb(255,204,51);"></span> Moderate</div>
+        <div><span style="background: rgb(255,153,51);"></span> High</div>
+        <div><span style="background: rgb(255,0,0);"></span> Very High</div>
+    </div>
 
-        // Count occurrences of each MCPP
-        data.features.forEach(feature => {
-            const mcpp = feature.properties.MCPP;
-            if (mcpp) {
-                crimeCounts[mcpp] = (crimeCounts[mcpp] || 0) + 1;
-            }
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidGFtaWFvIiwiYSI6ImNtMWpqOTZqdzAyOXoyaXB6NWs2Z3I1NjQifQ.fmZ_xV4IXtA-9e21FWbMQw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/tamiao/cm6tuah1l002o01so24tbaia9',
+            center: [-122.33935, 47.60774],
+            zoom: 12
         });
 
-        // Get table element
-        const table = document.getElementById('crime-table');
+        function updateTable(data) {
+            const crimeCounts = {};
 
-        // Clear existing table rows (except the header)
-        table.innerHTML = '<tr><th>MCPP</th><th>Number of Crimes</th></tr>';
+            
+            data.features.forEach(feature => {
+                const mcpp = feature.properties.MCPP;
+                if (mcpp) {
+                    crimeCounts[mcpp] = (crimeCounts[mcpp] || 0) + 1;
+                }
+            });
 
-        // Populate table with crime data
-        for (const [mcpp, count] of Object.entries(crimeCounts)) {
-            let row = table.insertRow();
-            row.insertCell(0).innerText = mcpp;
-            row.insertCell(1).innerText = count;
+        
+            const table = document.getElementById('crime-table');
+
+    
+            table.innerHTML = '<tr><th>MCPP</th><th>Number of Crimes</th></tr>';
+
+            // Populate table with crime data
+            for (const [mcpp, count] of Object.entries(crimeCounts)) {
+                let row = table.insertRow();
+                row.insertCell(0).innerText = mcpp;
+                row.insertCell(1).innerText = count;
+            }
         }
-    }
 
-    map.on('load', () => {
-        fetch('map.geojson')
-            .then(response => response.json())
-            .then(data => {
-                map.addSource('assaults', {
-                    'type': 'geojson',
-                    'data': data
-                });
+        map.on('load', () => {
+            fetch('map.geojson')
+                .then(response => response.json())
+                .then(data => {
+                    map.addSource('assaults', {
+                        'type': 'geojson',
+                        'data': data
+                    });
 
-                map.addLayer({
-                    'id': 'assaults-heat',
-                    'type': 'heatmap',
-                    'source': 'assaults',
-                    'maxzoom': 15,
-                    'paint': {
-                        'heatmap-weight': ['interpolate', ['linear'], ['get', 'ASSAULT_OFFENSES'], 0, 0, 5, 0.7],
-                        'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 15, 2],
-                        'heatmap-color': [
-                            'interpolate', ['linear'], ['heatmap-density'],
-                            0, 'rgba(255,255,0,0)',
-                            0.1, 'rgb(255,255,102)',
-                            0.3, 'rgb(255,204,51)',
-                            0.5, 'rgb(255,153,51)',
-                            0.7, 'rgb(255,128,0)',
-                            0.85, 'rgb(255,102,102)',
-                            1, 'rgb(255,0,0)'
-                        ],
-                        'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 15, 25],
-                        'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 15, 0.75]
-                    }
-                });
+                    map.addLayer({
+                        'id': 'assaults-heat',
+                        'type': 'heatmap',
+                        'source': 'assaults',
+                        'maxzoom': 15,
+                        'paint': {
+                            'heatmap-weight': ['interpolate', ['linear'], ['get', 'ASSAULT_OFFENSES'], 0, 0, 5, 0.7],
+                            'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 15, 2],
+                            'heatmap-color': [
+                                'interpolate', ['linear'], ['heatmap-density'],
+                                0, 'rgba(255,255,0,0)',
+                                0.1, 'rgb(255,255,102)',
+                                0.3, 'rgb(255,204,51)',
+                                0.5, 'rgb(255,153,51)',
+                                0.7, 'rgb(255,128,0)',
+                                0.85, 'rgb(255,102,102)',
+                                1, 'rgb(255,0,0)'
+                            ],
+                            'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 15, 25],
+                            'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 15, 0.75]
+                        }
+                    });
 
-                map.addLayer({
-                    'id': 'assaults-point',
-                    'type': 'circle',
-                    'source': 'assaults',
-                    'minzoom': 13,
-                    'paint': {
-                        'circle-radius': 4,
-                        'circle-color': 'red',
-                        'circle-opacity': 0.8
-                    }
-                });
+                    map.addLayer({
+                        'id': 'assaults-point',
+                        'type': 'circle',
+                        'source': 'assaults',
+                        'minzoom': 13,
+                        'paint': {
+                            'circle-radius': 4,
+                            'circle-color': 'red',
+                            'circle-opacity': 0.8
+                        }
+                    });
 
-                updateTable(data);
-            })
-            .catch(error => console.error('Error loading GeoJSON:', error));
-            map.on('click', 'assaults-point', (e) => {
-    if (e.features.length > 0) {
-        const offenseType = e.features[0].properties.MCPP;
-        new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(`<strong>MCPP:</strong> ${offenseType}`)
-            .addTo(map);
-    }
-});
-
-// Ensure cursor changes when hovering over points
-map.on('mouseenter', 'assaults-point', () => {
-    map.getCanvas().style.cursor = 'pointer';
-});
-
-map.on('mouseleave', 'assaults-point', () => {
-    map.getCanvas().style.cursor = '';
-});
-
+                    updateTable(data);
+                })
+                .catch(error => console.error('Error loading GeoJSON:', error));
+                map.on('click', 'assaults-point', (e) => {
+        if (e.features.length > 0) {
+            const offenseType = e.features[0].properties.MCPP;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(`<strong>MCPP:</strong> ${offenseType}`)
+                .addTo(map);
+        }
     });
-</script>
+
+
+    map.on('mouseenter', 'assaults-point', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'assaults-point', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+        });
+    </script>
 </body>
 </html>
 
