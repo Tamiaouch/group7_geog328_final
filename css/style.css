@@ -176,7 +176,7 @@ ul li a:hover {
 }
 
 
-/* media */
+/* media queries */
 
 @media (max-width: 1024px) {
     .container {
