@@ -110,7 +110,7 @@ body { margin: 0; padding: 0; display: flex; }
     }
 
     map.on('load', () => {
-        fetch('map.geojson')
+        fetch('assets/map.geojson')
             .then(response => response.json())
             .then(data => {
                 map.addSource('assaults', {
