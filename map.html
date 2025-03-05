@@ -1,100 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Assault Offenses Map</title>
-<meta name="author" content="Tamia Ouch">
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+    <title>Assault Offenses Map</title>
+    <meta name="author" content="Tamia Ouch">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 
-<link rel="icon" href="favicon.ico">
-<!-- <link rel="stylesheet" href="css/style.css"> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-    <body class="map-content"></body>
-    <style>
-        body { margin: 0; padding: 0; display: flex; }
-        .map-sidebar {
-            width: 25%;
-            height: 100vh;
-            background: white;
-            padding: 10px;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            border-right: 1px solid #ccc;
-            overflow-y: auto;
-        }
-        #map { width: 75%; height: 100vh; }
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .table, .table th, .table td {
-            border: 1px solid black;
-            padding: 5px;
-            text-align: left;
-        }
-
-        /* Move the legend to bottom right */
-        .legend {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: white;
-            padding: 10px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-        .legend div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        .legend span {
-            width: 20px;
-            height: 10px;
-            display: inline-block;
-            margin-right: 5px;
-        }
-        </style>
 <body>
+    <div class="map-container">
+        <nav class="sidebar">
+            <ul class="sidebar-links">
+                <li><a href="index.html" data-tooltip="Overview"><i class="fas fa-info-circle"></i></a></li>
+                <li><a href="map.html" data-tooltip="Heatmap"><i class="fas fa-map"></i></a></li>
+                <li><a href="analysis.html" data-tooltip="Analysis"><i class="fas fa-chart-bar"></i></a></li>
+                <li><a href="importance.html" data-tooltip="Policies"><i class="fas fa-balance-scale"></i></a></li>
+                <li><a href="references.html" data-tooltip="References"><i class="fas fa-database"></i></a></li>            
+            </ul>
+        </nav>
 
-    <nav class="sidebar">
-        <ul class="sidebar-links">
-            <li><a href="index.html" data-tooltip="Overview"><i class="fas fa-info-circle"></i></a></li>
-            <li><a href="map.html" data-tooltip="Heatmap"><i class="fas fa-map"></i></a></li>
-            <li><a href="analysis.html" data-tooltip="Analysis"><i class="fas fa-chart-bar"></i></a></li>
-            <li><a href="importance.html" data-tooltip="Policies"><i class="fas fa-balance-scale"></i></a></li>
-            <li><a href="references.html" data-tooltip="References"><i class="fas fa-database"></i></a></li>            
-        </ul>
-    </nav>
-
-    <div class="map-sidebar">
-        <h3>Crime Summary</h3>
-        <table class="table" id="crime-table">
-            <tr>
-                <th>MCPP</th>
-                <th>Number of Crimes</th>
-            </tr>
-        </table>
-    </div>
-    <div id="map"></div>
-
-    <div class="legend" id="legend">
-        <strong>Heatmap Intensity</strong>
-        <div><span style="background: rgb(255,255,102);"></span> Low</div>
-        <div><span style="background: rgb(255,204,51);"></span> Moderate</div>
-        <div><span style="background: rgb(255,153,51);"></span> High</div>
-        <div><span style="background: rgb(255,0,0);"></span> Very High</div>
-    </div>
+            <div class="map-sidebar">
+                <h3>Crime Summary</h3>
+                <table class="table" id="crime-table">
+                    <tr>
+                        <th>MCPP</th>
+                        <th>Number of Crimes</th>
+                    </tr>
+                </table>
+            </div>
+            <div id="map">
+                <div class="legend" id="legend">
+                    <strong>Heatmap Intensity</strong>
+                    <div><span style="background: rgb(255,255,102);"></span> Low</div>
+                    <div><span style="background: rgb(255,204,51);"></span> Moderate</div>
+                    <div><span style="background: rgb(255,153,51);"></span> High</div>
+                    <div><span style="background: rgb(255,0,0);"></span> Very High</div>
+                </div>
+            </div>
+        </div>
 
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoidGFtaWFvIiwiYSI6ImNtMWpqOTZqdzAyOXoyaXB6NWs2Z3I1NjQifQ.fmZ_xV4IXtA-9e21FWbMQw';
+                mapboxgl.accessToken = 'pk.eyJ1IjoidGFtaWFvIiwiYSI6ImNtMWpqOTZqdzAyOXoyaXB6NWs2Z3I1NjQifQ.fmZ_xV4IXtA-9e21FWbMQw';
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/tamiao/cm6tuah1l002o01so24tbaia9',
@@ -119,7 +69,6 @@
     
             table.innerHTML = '<tr><th>MCPP</th><th>Number of Crimes</th></tr>';
 
-            // Populate table with crime data
             for (const [mcpp, count] of Object.entries(crimeCounts)) {
                 let row = table.insertRow();
                 row.insertCell(0).innerText = mcpp;
@@ -128,7 +77,7 @@
         }
 
     map.on('load', () => {
-        fetch('map.geojson')
+        fetch('assets/map.geojson')
             .then(response => response.json())
             .then(data => {
                 map.addSource('assaults', {
@@ -197,4 +146,3 @@
     </script>
 </body>
 </html>
-
