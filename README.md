@@ -1,7 +1,7 @@
 # Seattle Assault Crimes Heatmap
 ***Kathleen Tran, Kristen Do, Liuci Raisys, Tamia Ouch and Yinzheng Chen***
 
-(favicon)
+![seattle space needle icon](assets/favicon.png)
 
 ## Project Title
 
