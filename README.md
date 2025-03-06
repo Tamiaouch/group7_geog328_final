@@ -45,8 +45,8 @@ These screenshots illustrate how the heatmap can be used to explore Seattle's cr
 - **Heatmap Visualization**: Displays assault crime density on the map, highlighting areas with higher crime frequency in varying intensity levels, allowing users to visually identify crime hotspots across the region.
 - **Zooming Feature**: Allows users to zoom in and out of specific areas, providing a closer look at crime patterns when zoomed in, and a broader view of trends when zoomed out, making it easier to explore the data.
 - **Interactive Map**: Users can interact with the map to explore crime data by selecting different neighborhoods or areas. The map updates to show crime statistics, allowing users to identify trends and compare crime activity across locations.
-- **Responsive Design**: Ensures that the map and all its features are fully accessible and functional across all devices, including desktops, tablets, and mobile devices.
 - **Crime Summary Sidebar**: Provides a quick overview of the number of crimes in each neighborhood or area, giving users easy access to crime statistics and trends for specific locations.
+- **Responsive Design**: Ensures that the map and all its features are fully accessible and functional across all devices, including desktops, tablets, and mobile devices.
 
 ### Data Sources
 
