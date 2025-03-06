@@ -62,25 +62,25 @@ This web application uses the following libraries and services:
 - **Mapbox GL JS**: A JavaScript library for rendering interactive maps with vector tiles. Used for displaying crime data as a heatmap and providing interactive features.
 - **OpenStreetMap**: The base map data source, integrated through Mapbox to ensure accurate geographic data.
 
+### Data Sensitivity & Confidentiality
+
+Our project ensures that assault crime data is displayed responsibly, maintaining confidentiality by using aggregated data points. We avoid pinpointing exact addresses to respect privacy while still providing valuable insights into crime patterns.
+
+We have taken the following measures to ensure data sensitivity:
+
+- **Data Sourcing & Anonymization**: Our data comes from openly available resources like the Seattle Open Data Portal and the Seattle Police Department. To protect privacy, all data has been anonymized to prevent the identification of individuals involved in the incidents.
+- **Ethical Considerations & User Responsibility**: We have taken ethical considerations into account to ensure the data is presented fairly and without bias. Users are encouraged to interpret the data responsibly, keeping its context and limitations in mind.
+
+By implementing these measures, we aim to provide a valuable resource for understanding crime patterns while respecting the privacy and confidentiality of individuals.
+
 ### Acknowledgments
 
-We would like to acknowledge the following contributors and sources:
-
-- **Seattle Police Department**: For making crime data publicly available.
-- **Mapbox**: For providing powerful tools to visualize geographic data.
-
-Special thanks to the open-source community for creating the libraries that power this project.
+We would like to acknowledge the Seattle Police Department for making crime data publicly available and Mapbox for providing tools that allow us to visualize geographic data. A special thanks to the open-source community for creating the libraries that power this project. This project is built on the principles of open data and transparency, which empower communities to make informed decisions.
 
 ### AI Use Disclosure
 
-We have used generative AI tools like ChatGPT to assist in the development of this project, specifically for:
-- Code debugging.
-
-However, we have not used AI tools to generate data or to develop the core functionality of the web application.
+We have used generative AI tools like ChatGPT to assist in the development of this project, specifically and solely for code debugging. However, AI tools were not used to generate data or develop the core functionality of the web application.
 
 ### Other Information
 
-
----
-
-The **Seattle Assault Crimes Heatmap** is designed to improve the safety and awareness of Seattle's residents by visualizing crime patterns in an interactive, user-friendly map. We hope this tool aids in informed decision-making and helps to reduce crime through community awareness. For suggestions or contributions, please feel free to open issues or pull requests in the repository.
+The **Seattle Assault Crimes Heatmap** is designed to improve the safety and awareness of Seattle's residents by visualizing crime patterns in an interactive, user-friendly map. We hope this tool aids in informed decision-making and helps to reduce crime through community awareness. 
