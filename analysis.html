@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Analysis - Seattle 2020</title>
+    <meta name="author" content="Yinzheng Chen">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="index.html" data-tooltip="Overview"><i class="fas fa-info-circle"></i></a></li>
+            <li><a href="map.html" data-tooltip="Heatmap"><i class="fas fa-map"></i></a></li>
+            <li><a href="analysis.html" data-tooltip="Analysis"><i class="fas fa-chart-bar"></i></a></li>
+            <li><a href="importance.html" data-tooltip="Policies"><i class="fas fa-balance-scale"></i></a></li>
+            <li><a href="references.html" data-tooltip="References"><i class="fas fa-database"></i></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 class="heading-2">Assault Crime Analysis in Seattle (2020)</h1>
+        
+        <!-- Part 1: Crime Distribution and Monthly Trends -->
+        <section>
+            <h2>Crime Distribution & Monthly Trends</h2>
+            <p>Seattle's crime data reveals significant variations among different neighborhoods. The following five areas recorded the highest number of assaults in 2020:</p>
+            <ul>
+                <li><strong>Capitol Hill:</strong> 235 cases - A dense residential and commercial area with vibrant nightlife.</li>
+                <li><strong>Downtown Commercial:</strong> 197 cases - A major business and transit hub, with high foot traffic.</li>
+                <li><strong>Belltown:</strong> 190 cases - Known for bars and entertainment, contributing to nighttime crime.</li>
+                <li><strong>University District:</strong> 106 cases - A student-heavy area, with crime patterns influenced by population mobility.</li>
+                <li><strong>Mid Beacon Hill:</strong> 98 cases - A diverse residential area, with mixed socioeconomic factors.</li>
+            </ul>
+            <p>Crime trends indicate that incidents peak in summer (July & August) and again in October. Warmer months see increased public activity, while October’s spike may relate to seasonal events.</p>
+            <img src="assets/images/timeline.png" alt="Monthly Crime Trends" style="width: 80%; max-width: 600px; display: block; margin: 0 auto;">
+        </section>
+
+        <!-- Part 2: Heatmap Justification and Comparison -->
+        <section>
+            <h2>Why Use a Heatmap?</h2>
+            <p>Crime visualization can be approached in multiple ways. Below, we compare two methods:</p>
+            <div style="display: flex; justify-content: space-around;">
+                <img src="assets/images/com1.png" alt="Choropleth Map" style="width: 45%; max-width: 450px;">
+                <img src="assets/images/com2.png" alt="Heatmap" style="width: 45%; max-width: 450px;">
+            </div>
+            <p>The heatmap provides a more detailed view of crime clusters, making it easier to identify high-risk locations. Unlike a choropleth map, which generalizes data over large areas, the heatmap shows precise crime distribution.</p>
+            <p>Additionally, the color gradient from yellow (low) to red (high) creates an intuitive representation of crime intensity. Users can quickly detect patterns and assess how crimes are concentrated in specific zones, rather than averaging across neighborhoods.</p>
+            <p>Heatmaps are particularly beneficial for urban safety planning. For example, instead of allocating equal police resources across all of Downtown Seattle, resources can be focused on micro-locations where crimes frequently occur.</p>
+        </section>
+
+        <!-- Part 3: Applications and Future Improvements -->
+        <section>
+            <h2>Applications & Future Improvements</h2>
+            <h3>How Our Crime Heatmap Can Be Used</h3>
+            <ul>
+                <li><strong>Crime Prevention & Patrol Optimization:</strong> Law enforcement can identify high-risk zones and allocate resources strategically to prevent crime before it happens.</li>
+                <li><strong>Urban Planning:</strong> City planners can enhance safety by improving street lighting, increasing police presence, and designing crime-resistant public spaces.</li>
+                <li><strong>Community Awareness:</strong> Local communities can use the heatmap to advocate for safety improvements and organize crime prevention initiatives tailored to their specific needs.</li>
+                <li><strong>Business & Real Estate Decision-Making:</strong> Business owners and property buyers can assess crime trends to make informed location choices.</li>
+            </ul>
+            <h3>Potential Future Enhancements</h3>
+            <ul>
+                <li><strong>Real-Time Data Integration:</strong> Currently, the heatmap is based on historical crime data. In the future, we could incorporate real-time crime reports to track crime trends dynamically.</li>
+                <li><strong>Interactive Filtering:</strong> Users can refine data views based on crime type, severity, and time of occurrence to better understand trends.</li>
+                <li><strong>Predictive Analytics:</strong> Future iterations could use machine learning models to predict:
+                    Future crime hotspots based on historical data.
+                    Seasonal or event-based fluctuations to proactively allocate law enforcement resources.</li>
+            </ul>
+            <p>By continuously improving the accuracy and interactivity of the crime heatmap, we hope to make it an indispensable tool for enhancing public safety, city planning, and community-driven crime prevention efforts.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Seattle Assault Crimes Heatmap Project | Seattle, WA</p>
+    </footer>
+</body>
+</html>
