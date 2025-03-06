@@ -1,6 +1,6 @@
 # Seattle Assault Crimes Heatmap
 
-![seattle space needle icon](assets/favicon.png)
+![seattle space needle icon](assets/images/favicon.png)
 
 ***Kathleen Tran, Kristen Do, Liuci Raisys, Tamia Ouch and Yinzheng Chen***
 
@@ -32,9 +32,11 @@ You can access the Seattle Assault Crimes Heatmap via the following URL:
 
 #### Heatmap View of Seattle with Assault Crime Density:
 
+![crime heatmap](assets/images/heatmap.png)
 
 #### Zoomed-in View Showing Individual Data Points:
 
+![crime heatmap closeup](assets/images/closeup.png)
 
 These screenshots illustrate how the heatmap can be used to explore Seattle's crime patterns both from a broad and detailed perspective.
 
