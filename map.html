@@ -68,7 +68,7 @@
             const table = document.getElementById('crime-table');
 
     
-            table.innerHTML = '<tr><th>MCPP</th><th>Number of Crimes</th></tr>';
+            table.innerHTML = '<tr><th>Neighborhood</th><th>Number of Crimes</th></tr>';
 
             for (const [mcpp, count] of Object.entries(crimeCounts)) {
                 let row = table.insertRow();
