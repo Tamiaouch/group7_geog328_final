@@ -76,7 +76,7 @@ We would like to acknowledge the Seattle Police Department for making crime data
 
 ### AI Use Disclosure
 
-We have used generative AI tools like ChatGPT to assist in the development of this project, specifically and solely for code debugging. However, AI tools were not used to generate data or develop the core functionality of the web application.
+We have used generative AI tools like ChatGPT to assist in the development of this project, solely for code debugging. However, AI tools were not used to generate data or develop the core functionality of the web application.
 
 ### Other Information
 
