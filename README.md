@@ -32,6 +32,7 @@ You can access the Seattle Assault Crimes Heatmap via the following URL:
 
 #### Heatmap View of Seattle with Assault Crime Density:
 
+![crime heatmap](assets/heatmap.png)
 
 #### Zoomed-in View Showing Individual Data Points:
 
