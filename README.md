@@ -22,12 +22,6 @@ We aim to:
 
 This project directly aligns with efforts to make communities safer and encourage more informed decision-making about urban living.
 
-### Application URL
-
-You can access the Seattle Assault Crimes Heatmap via the following URL:
-
-(URL with your actual deployed URL)
-
 ### Screenshots
 
 #### Heatmap View of Seattle with Assault Crime Density:
