@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assault Crime Heatmap - Seattle 2020</title>
     <meta name="author" content="Liuci Raisys">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -14,7 +14,7 @@
     <nav class="sidebar">
         <ul class="sidebar-links">
             <li><a href="index.html" data-tooltip="Overview"><i class="fas fa-info-circle"></i></a></li>
-            <li><a href="heatmap.html" data-tooltip="Heatmap"><i class="fas fa-map"></i></a></li>
+            <li><a href="map.html" data-tooltip="Heatmap"><i class="fas fa-map"></i></a></li>
             <li><a href="analysis.html" data-tooltip="Analysis"><i class="fas fa-chart-bar"></i></a></li>
             <li><a href="importance.html" data-tooltip="Policies"><i class="fas fa-balance-scale"></i></a></li>
             <li><a href="references.html" data-tooltip="References"><i class="fas fa-database"></i></a></li>            
@@ -25,7 +25,7 @@
     <div class="container">
         <div class="left-section">
             <h1 class="heading">Assault Crime Heatmap - Seattle 2020</h1>
-            <p class="subtext"> By Liuci Raisys, Kristen Do, Tamia Ouch, Kathleen Tran, and Yinzheng Chen </p>
+            <p class="subtext"><strong><em>By Liuci Raisys, Kristen Do, Tamia Ouch, Kathleen Tran, and Yinzheng Chen</em></strong> </p>
 
             <h2>About Our Project</h2>
             <p>
@@ -52,29 +52,25 @@
                 Our project ensures that assault crime data is displayed responsibly, maintaining confidentiality by using aggregated data points. 
                 We avoid pinpointing exact addresses to respect privacy while still providing valuable insights into crime patterns.
             </p>
+            <p>
+                We have taken the following measures to ensure data sensitivity:
+            </p>    
+            <ul>
+                <li><strong>Data Sourcing & Anonymization</strong>: Our data comes from openly available resources like the Seattle Open Data Portal and the Seattle Police Department. To protect privacy, all data has been anonymized to prevent the identification of individuals involved in the incidents.</li>
+                <li><strong>Ethical Considerations & User Responsibility</strong>: We have taken ethical considerations into account to ensure the data is presented fairly and without bias. Users are encouraged to interpret the data responsibly, keeping its context and limitations in mind.</li>
+            </ul>
+            <p>
+                By implementing these measures, we aim to provide a valuable resource for understanding crime patterns while respecting the privacy and confidentiality of individuals.
+            </p>
         </div>
 
         <div class="right-section">
-            <img src="assets/seattle1.jpg" alt="Seattle">
+            <img src="assets/images/seattle1.jpg" alt="Seattle">
         </div>
     </div>
 
         <footer>
             <p>&copy; 2025 Assault Crime Heatmap Project | Seattle, WA</p>
         </footer>
-
-    <!-- <script>
-        function toggleNav() {
-            const sidebar = document.getElementById("mySidebar");
-            const main = document.getElementById("main");
-            if (sidebar.style.width === "250px") {
-                sidebar.style.width = "0";
-                main.style.marginLeft = "0";
-            } else {
-                sidebar.style.width = "250px";
-                main.style.marginLeft = "250px";
-            }
-        }
-    </script> -->
 </body>
 </html>
