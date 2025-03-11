@@ -225,7 +225,7 @@ ul li a:hover {
     margin-left: -3px;
   }
   
-  /* Container around content */
+
   .container-2 {
     padding: 10px 40px;
     position: relative;
@@ -233,7 +233,7 @@ ul li a:hover {
     width: 50%;
   }
   
-  /* The circles on the timeline */
+
   .container-2::after {
     content: '';
     position: absolute;
